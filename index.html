@@ -92,8 +92,76 @@
       font-weight: 750;
     }
 
-    .nav-links a:hover {
+    .menu {
+      position: relative;
+    }
+
+    .menu summary {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--ink);
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .menu summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .menu-lines,
+    .menu-lines::before,
+    .menu-lines::after {
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--green);
+    }
+
+    .menu-lines {
+      position: relative;
+    }
+
+    .menu-lines::before,
+    .menu-lines::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    .menu-lines::before {
+      top: -6px;
+    }
+
+    .menu-lines::after {
+      top: 6px;
+    }
+
+    .menu-panel {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 10px);
+      display: grid;
+      min-width: 190px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .menu-panel a {
+      padding: 11px 12px;
+      border-radius: 14px;
       color: var(--ink);
+      font-weight: 850;
+    }
+
+    .menu-panel a:hover {
+      background: var(--mint);
     }
 
     .button {
@@ -131,8 +199,8 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-      gap: 48px;
+      grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+      gap: 34px;
       align-items: center;
     }
 
@@ -188,69 +256,48 @@
       font-weight: 750;
     }
 
-    .quick-proof {
+    .hero-visual {
+      position: relative;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      max-width: 560px;
-    }
-
-    .quick-proof div {
-      padding: 13px 14px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.62);
-      color: var(--muted);
-      font-size: 0.9rem;
-      font-weight: 750;
-    }
-
-    .quick-proof b {
-      display: block;
-      color: var(--ink);
-      font-size: 1.05rem;
-    }
-
-    .preview-panel {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
       padding: 18px;
-      border-radius: var(--radius);
+      border-radius: 36px;
       background: var(--ink);
       box-shadow: var(--shadow);
     }
 
-    .preview-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 14px;
-      color: var(--paper);
-      font-weight: 900;
-    }
-
-    .pill {
-      padding: 6px 10px;
+    .hero-visual::before {
+      content: "Faceless AI";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 2;
+      transform: translate(-50%, -50%) rotate(-4deg);
+      padding: 10px 16px;
       border-radius: 999px;
       background: var(--green);
       color: var(--deep);
-      font-size: 0.78rem;
-      font-weight: 900;
+      font-size: 0.92rem;
+      font-weight: 950;
+      white-space: nowrap;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.24);
     }
 
-    .mini-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .mini-card {
+    .hero-card {
       overflow: hidden;
-      border-radius: 18px;
+      border-radius: 24px;
       background: #20251f;
       aspect-ratio: 1.58 / 1;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
     }
 
-    .mini-card img {
+    .hero-card:nth-child(1),
+    .hero-card:nth-child(4) {
+      transform: translateY(16px);
+    }
+
+    .hero-card img {
       height: 100%;
       object-fit: cover;
     }
@@ -306,34 +353,6 @@
       margin-bottom: 0;
       color: var(--muted);
       font-weight: 620;
-    }
-
-    .image-section {
-      background: var(--ink);
-      color: var(--paper);
-    }
-
-    .image-section .lead {
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    .examples {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .example {
-      overflow: hidden;
-      border-radius: 22px;
-      background: #20251f;
-      aspect-ratio: 1.58 / 1;
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-    }
-
-    .example img {
-      height: 100%;
-      object-fit: cover;
     }
 
     .steps {
@@ -475,12 +494,7 @@
         padding-top: 48px;
       }
 
-      .preview-panel {
-        max-width: 520px;
-      }
-
-      .cards,
-      .examples {
+      .cards {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -498,18 +512,8 @@
         min-height: 62px;
       }
 
-      .nav-links a:not(.button) {
-        display: none;
-      }
-
       .brand {
         font-size: 0.88rem;
-      }
-
-      .nav-links .button {
-        min-height: 42px;
-        padding: 0 14px;
-        font-size: 0.86rem;
       }
 
       .hero {
@@ -528,23 +532,19 @@
         width: 100%;
       }
 
-      .quick-proof {
-        grid-template-columns: 1fr;
-      }
-
-      .preview-panel {
-        padding: 12px;
-        border-radius: 22px;
-      }
-
-      .mini-grid,
-      .examples {
+      .hero-visual {
         gap: 8px;
+        padding: 10px;
+        border-radius: 24px;
       }
 
-      .mini-card,
-      .example {
-        border-radius: 14px;
+      .hero-card {
+        border-radius: 16px;
+      }
+
+      .hero-card:nth-child(1),
+      .hero-card:nth-child(4) {
+        transform: translateY(8px);
       }
 
       section {
@@ -566,12 +566,15 @@
         <span class="brand-mark" aria-hidden="true"></span>
         viralclipmethod.org
       </a>
-      <div class="nav-links">
-        <a href="#inside">Inside</a>
-        <a href="#examples">Examples</a>
-        <a href="#faq">FAQ</a>
-        <a class="button" href="https://buy.stripe.com/3cI5kDeksdP89j85CP6wE00">Get Access</a>
-      </div>
+      <details class="menu">
+        <summary aria-label="Open navigation menu"><span class="menu-lines"></span></summary>
+        <div class="menu-panel">
+          <a href="#inside">Start Today</a>
+          <a href="#method">5-Step Method</a>
+          <a href="#offer">What You Get</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </details>
     </div>
   </nav>
 
@@ -586,24 +589,13 @@
             <a class="button" href="https://buy.stripe.com/3cI5kDeksdP89j85CP6wE00">Get Instant Access - $9.99</a>
             <span class="price-note">One-time payment. Instant digital access.</span>
           </div>
-          <div class="quick-proof">
-            <div><b>30 min</b>Method</div>
-            <div><b>Phone or laptop</b>Works on both</div>
-            <div><b>Any skill level</b>No camera needed</div>
-          </div>
         </div>
 
-        <div class="preview-panel" aria-label="Cartoon AI video examples">
-          <div class="preview-head">
-            <span>Faceless AI Method</span>
-            <span class="pill">Beginner friendly</span>
-          </div>
-          <div class="mini-grid">
-            <div class="mini-card"><img src="assets/crops/shrek-donkey-card.jpg" alt="AI cartoon drama thumbnail example"></div>
-            <div class="mini-card"><img src="assets/crops/regular-show-card.jpg" alt="AI cartoon drama thumbnail example"></div>
-            <div class="mini-card"><img src="assets/crops/peppa-card.jpg" alt="AI cartoon drama thumbnail example"></div>
-            <div class="mini-card"><img src="assets/crops/scooby-card.jpg" alt="AI cartoon drama thumbnail example"></div>
-          </div>
+        <div class="hero-visual" aria-label="Cartoon AI video examples">
+          <div class="hero-card"><img src="assets/crops/shrek-donkey-card.jpg" alt="AI cartoon drama thumbnail example"></div>
+          <div class="hero-card"><img src="assets/crops/regular-show-card.jpg" alt="AI cartoon drama thumbnail example"></div>
+          <div class="hero-card"><img src="assets/crops/peppa-card.jpg" alt="AI cartoon drama thumbnail example"></div>
+          <div class="hero-card"><img src="assets/crops/scooby-card.jpg" alt="AI cartoon drama thumbnail example"></div>
         </div>
       </div>
     </header>
@@ -611,69 +603,53 @@
     <section id="inside">
       <div class="wrap">
         <div class="section-head">
-          <h2>Everything you need to start.</h2>
-          <p class="lead">No filming, no showing your face, and no complicated editing setup. The guide keeps the workflow direct.</p>
+          <h2>Start Today.</h2>
+          <p class="lead">Faceless, NO ADDITIONAL SOFTWARE COSTS, easy plug-and-play workflow.</p>
         </div>
         <div class="cards">
           <article class="card">
-            <h3>Viral idea prompts</h3>
-            <p>Use ready-to-edit prompt templates to generate story hooks, drama angles, and character scenes.</p>
+            <h3>Remix proven viral videos</h3>
+            <p>Start from videos already getting attention, then rework them into your own cartoon niche for a higher chance of catching momentum.</p>
           </article>
           <article class="card">
-            <h3>Image and clip workflow</h3>
-            <p>Learn the exact order for creating visuals, turning them into clips, and keeping the style consistent.</p>
+            <h3>Image and Video Generation</h3>
+            <p>Generate the scenes fast with free AI tools.</p>
           </article>
           <article class="card">
-            <h3>CapCut posting flow</h3>
-            <p>Edit quickly, add captions, export cleanly, and post with a repeatable routine.</p>
+            <h3>Edit in CapCut</h3>
+            <p>Use my template, move fast, and post today.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="image-section" id="examples">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Built around scroll-stopping faces.</h2>
-          <p class="lead">The examples are cropped for mobile: expression first, clutter removed, and no need to show the full 9:16 frame.</p>
-        </div>
-        <div class="examples">
-          <div class="example"><img src="assets/crops/shrek-donkey-card.jpg" alt="Cropped AI cartoon example showing expressive faces"></div>
-          <div class="example"><img src="assets/crops/regular-show-card.jpg" alt="Cropped AI cartoon example showing expressive faces"></div>
-          <div class="example"><img src="assets/crops/peppa-card.jpg" alt="Cropped AI cartoon example showing expressive faces"></div>
-          <div class="example"><img src="assets/crops/scooby-card.jpg" alt="Cropped AI cartoon example showing expressive faces"></div>
-        </div>
-      </div>
-    </section>
-
-    <section>
+    <section id="method">
       <div class="wrap">
         <div class="section-head">
           <h2>The 5-step method.</h2>
           <p class="lead">Simple enough to follow the same day, structured enough to repeat every week.</p>
         </div>
         <div class="steps">
-          <div class="step"><strong>Find proven story ideas from TikTok scrolling patterns.</strong></div>
-          <div class="step"><strong>Turn those ideas into AI prompts and scene lists.</strong></div>
-          <div class="step"><strong>Generate images and short clips with free tools.</strong></div>
-          <div class="step"><strong>Edit fast in CapCut with captions and pacing.</strong></div>
-          <div class="step"><strong>Post consistently and let the algorithm test the niche.</strong></div>
+          <div class="step"><strong>Tailor your FYP on TikTok to output viral videos in your niche.</strong></div>
+          <div class="step"><strong>Remix a pre-existing viral video into your specific cartoon style.</strong></div>
+          <div class="step"><strong>Generate AI images and videos using FREE tools.</strong></div>
+          <div class="step"><strong>Edit quickly in CapCut with MY personal template.</strong></div>
+          <div class="step"><strong>Post your first video TODAY!</strong></div>
         </div>
       </div>
     </section>
 
-    <section>
+    <section id="offer">
       <div class="wrap split">
         <div>
           <div class="section-head" style="display:block;margin-bottom:22px">
             <h2>What you get inside.</h2>
           </div>
           <ul class="checklist">
-            <li>Exact AI cartoon drama workflow</li>
-            <li>Prompt templates for hooks, characters, and scenes</li>
-            <li>Beginner CapCut editing process</li>
-            <li>Posting routine for consistent output</li>
-            <li>Faceless content system with no voice or camera required</li>
+            <li>Exact Cartoon Drama workflow</li>
+            <li>Prompt templates for AI images and video</li>
+            <li>Free UNLIMITED AI image and video generation</li>
+            <li>CapCut editing process</li>
           </ul>
         </div>
         <aside class="offer">
@@ -700,12 +676,12 @@
             <p>No. This is a fully faceless content system.</p>
           </div>
           <div class="faq">
-            <h3>What tools do I need?</h3>
-            <p>Free AI tools and CapCut are enough to start.</p>
+            <h3>Are there any additional costs?</h3>
+            <p>No additional software costs are required to start the workflow.</p>
           </div>
           <div class="faq">
-            <h3>How fast can I start?</h3>
-            <p>You can start the same day after getting access.</p>
+            <h3>When should I start?</h3>
+            <p>Post your first video today, don't fall behind.</p>
           </div>
         </div>
       </div>

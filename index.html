@@ -263,6 +263,15 @@
       font-weight: 750;
     }
 
+    .test-link {
+      color: var(--deep);
+      font-size: 0.94rem;
+      font-weight: 850;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
     .hero-visual {
       position: relative;
       display: grid;
@@ -297,11 +306,6 @@
       background: #20251f;
       aspect-ratio: 1.58 / 1;
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-    }
-
-    .hero-card:nth-child(1),
-    .hero-card:nth-child(4) {
-      transform: translateY(16px);
     }
 
     .hero-card img {
@@ -551,11 +555,6 @@
         border-radius: 16px;
       }
 
-      .hero-card:nth-child(1),
-      .hero-card:nth-child(4) {
-        transform: translateY(8px);
-      }
-
       section {
         padding: 48px 0;
       }
@@ -595,6 +594,7 @@
           <div class="cta-row">
             <a class="button" href="https://buy.stripe.com/3cI5kDeksdP89j85CP6wE00">Get Instant Access - $9.99</a>
             <span class="price-note">One-time payment. Instant digital access.</span>
+            <a class="test-link" href="thank-you.html">Preview thank-you page</a>
           </div>
         </div>
 

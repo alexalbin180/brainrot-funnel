@@ -199,9 +199,11 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
-      gap: 34px;
+      grid-template-columns: 1fr;
+      gap: 30px;
       align-items: center;
+      max-width: 900px;
+      text-align: center;
     }
 
     .eyebrow {
@@ -224,6 +226,8 @@
 
     h1 {
       max-width: 770px;
+      margin-left: auto;
+      margin-right: auto;
       margin-bottom: 22px;
       font-size: clamp(3.1rem, 7.5vw, 6.55rem);
       line-height: 0.88;
@@ -233,6 +237,8 @@
 
     .hero-copy {
       max-width: 630px;
+      margin-left: auto;
+      margin-right: auto;
       margin-bottom: 28px;
       color: var(--muted);
       font-size: clamp(1.08rem, 2vw, 1.34rem);
@@ -247,6 +253,7 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+      justify-content: center;
       gap: 14px;
       margin-bottom: 22px;
     }
@@ -268,7 +275,7 @@
     }
 
     .hero-visual::before {
-      content: "Faceless AI";
+      content: "Viral Niche";
       position: absolute;
       left: 50%;
       top: 50%;
@@ -363,10 +370,11 @@
     }
 
     .step {
-      min-height: 170px;
-      padding: 18px;
-      border-radius: 22px;
-      background: var(--mint);
+      min-height: 126px;
+      padding: 14px;
+      border: 2px solid rgba(22, 51, 0, 0.18);
+      border-radius: 18px;
+      background: rgba(231, 248, 216, 0.72);
       counter-increment: step;
     }
 
@@ -376,7 +384,7 @@
       place-items: center;
       width: 34px;
       height: 34px;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
       border-radius: 50%;
       background: var(--deep);
       color: var(--green);
@@ -385,6 +393,7 @@
 
     .step strong {
       display: block;
+      font-size: 0.94rem;
       line-height: 1.18;
     }
 
@@ -566,12 +575,10 @@
         <span class="brand-mark" aria-hidden="true"></span>
         viralclipmethod.org
       </a>
-      <details class="menu">
+      <details class="menu" id="site-menu">
         <summary aria-label="Open navigation menu"><span class="menu-lines"></span></summary>
         <div class="menu-panel">
-          <a href="#inside">Start Today</a>
-          <a href="#method">5-Step Method</a>
-          <a href="#offer">What You Get</a>
+          <a href="#buy">Buy</a>
           <a href="#faq">FAQ</a>
         </div>
       </details>
@@ -609,7 +616,7 @@
         <div class="cards">
           <article class="card">
             <h3>Remix proven viral videos</h3>
-            <p>Start from videos already getting attention, then rework them into your own cartoon niche for a higher chance of catching momentum.</p>
+            <p>We remix pre-existing viral videos into your cartoon niche to give each post the highest chance of catching momentum.</p>
           </article>
           <article class="card">
             <h3>Image and Video Generation</h3>
@@ -687,7 +694,7 @@
       </div>
     </section>
 
-    <section class="final-cta">
+    <section class="final-cta" id="buy">
       <div class="wrap">
         <h2>Start building faceless AI videos today.</h2>
         <p>This is a trend-based system. The creators who move fastest get the most reach.</p>
@@ -699,5 +706,26 @@
   <footer>
     <div class="wrap">viralclipmethod.org - Digital guide for educational purposes.</div>
   </footer>
+  <script>
+    const menu = document.getElementById("site-menu");
+
+    document.addEventListener("click", (event) => {
+      if (menu.open && !menu.contains(event.target)) {
+        menu.open = false;
+      }
+    });
+
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.open = false;
+      });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        menu.open = false;
+      }
+    });
+  </script>
 </body>
 </html>

@@ -4,6 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Viral Clip Method</title>
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+  </script>
   <style>
     :root {
       --ink: #10140f;
@@ -697,6 +702,15 @@
     <div class="wrap">viralclipmethod.org - Digital guide for educational purposes.</div>
   </footer>
   <script>
+    const navigationEntry = performance.getEntriesByType("navigation")[0];
+
+    if (navigationEntry && navigationEntry.type === "reload") {
+      if (window.location.hash) {
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+      window.scrollTo(0, 0);
+    }
+
     const menu = document.getElementById("site-menu");
 
     document.addEventListener("click", (event) => {

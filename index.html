@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Viral Clip Method</title>
-  <script>
-    if ("scrollRestoration" in history) {
-      history.scrollRestoration = "manual";
-    }
-  </script>
+  <meta name="description" content="Make viral 3D animal videos in 10 minutes. The plug-and-play kit and course behind 1.5M+ views in one week.">
+  <meta property="og:title" content="Make viral animal videos in 10 minutes">
+  <meta property="og:description" content="The plug-and-play kit and course behind 1.5M+ views in one week.">
+  <meta property="og:image" content="https://viralclipmethod.org/assets/animals/elephant.jpg">
+  <meta property="og:type" content="website">
   <style>
     :root {
       --ink: #10140f;
@@ -18,9 +18,8 @@
       --cream: #f7f4ea;
       --paper: #ffffff;
       --muted: #5d6659;
-      --line: rgba(16, 20, 15, 0.14);
+      --line: rgba(16, 20, 15, 0.12);
       --shadow: 0 18px 50px rgba(16, 20, 15, 0.12);
-      --radius: 28px;
     }
 
     * {
@@ -49,11 +48,19 @@
       width: 100%;
     }
 
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
     .wrap {
-      width: min(1120px, calc(100% - 32px));
+      width: min(1080px, calc(100% - 32px));
       margin: 0 auto;
     }
 
+    /* nav */
     .nav {
       position: sticky;
       top: 0;
@@ -67,7 +74,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 68px;
+      min-height: 64px;
       gap: 16px;
     }
 
@@ -77,117 +84,40 @@
       gap: 9px;
       color: var(--deep);
       font-weight: 900;
-      letter-spacing: 0;
     }
 
     .brand-mark {
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       background: var(--green);
       box-shadow: inset 0 0 0 7px var(--deep);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      color: var(--muted);
-      font-size: 0.94rem;
-      font-weight: 750;
-    }
-
-    .menu {
-      position: relative;
-    }
-
-    .menu summary {
-      display: grid;
-      place-items: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--ink);
-      cursor: pointer;
-      list-style: none;
-    }
-
-    .menu summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .menu-lines,
-    .menu-lines::before,
-    .menu-lines::after {
-      display: block;
-      width: 18px;
-      height: 2px;
-      border-radius: 999px;
-      background: var(--green);
-    }
-
-    .menu-lines {
-      position: relative;
-    }
-
-    .menu-lines::before,
-    .menu-lines::after {
-      content: "";
-      position: absolute;
-      left: 0;
-    }
-
-    .menu-lines::before {
-      top: -6px;
-    }
-
-    .menu-lines::after {
-      top: 6px;
-    }
-
-    .menu-panel {
-      position: absolute;
-      right: 0;
-      top: calc(100% + 10px);
-      display: grid;
-      min-width: 190px;
-      padding: 10px;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      background: var(--paper);
-      box-shadow: var(--shadow);
-    }
-
-    .menu-panel a {
-      padding: 11px 12px;
-      border-radius: 14px;
-      color: var(--ink);
-      font-weight: 850;
-    }
-
-    .menu-panel a:hover {
-      background: var(--mint);
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 54px;
-      padding: 0 24px;
-      border: 0;
+      min-height: 58px;
+      padding: 0 30px;
       border-radius: 999px;
       background: var(--green);
       color: var(--deep);
+      font-size: 1.06rem;
       font-weight: 900;
-      cursor: pointer;
       transition: transform 160ms ease, box-shadow 160ms ease;
       box-shadow: inset 0 0 0 1px rgba(22, 51, 0, 0.08);
     }
 
     .button:hover {
       transform: scale(1.035);
-      box-shadow: 0 12px 30px rgba(22, 51, 0, 0.14);
+      box-shadow: 0 12px 30px rgba(22, 51, 0, 0.16);
+    }
+
+    .button.small {
+      min-height: 42px;
+      padding: 0 18px;
+      font-size: 0.94rem;
     }
 
     .button.dark {
@@ -195,370 +125,236 @@
       color: var(--paper);
     }
 
+    /* hero */
     .hero {
-      padding: 74px 0 58px;
-      background:
-        radial-gradient(circle at 88% 4%, rgba(159, 232, 112, 0.55), transparent 34%),
-        linear-gradient(180deg, #fbf8ef 0%, var(--cream) 100%);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 30px;
-      align-items: center;
-      max-width: 900px;
+      padding: 72px 0 40px;
       text-align: center;
+      background:
+        radial-gradient(circle at 85% 0%, rgba(159, 232, 112, 0.5), transparent 36%),
+        linear-gradient(180deg, #fbf8ef 0%, var(--cream) 100%);
     }
 
     .eyebrow {
       display: inline-flex;
-      margin-bottom: 18px;
-      padding: 8px 12px;
+      margin-bottom: 20px;
+      padding: 8px 14px;
       border-radius: 999px;
       background: var(--mint);
       color: var(--deep);
-      font-size: 0.82rem;
+      font-size: 0.86rem;
       font-weight: 900;
     }
 
-    h1,
-    h2,
-    h3,
-    p {
-      margin-top: 0;
-    }
-
     h1 {
-      max-width: 770px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 22px;
-      font-size: clamp(3.1rem, 7.5vw, 6.55rem);
-      line-height: 0.88;
-      letter-spacing: 0;
+      max-width: 760px;
+      margin: 0 auto 20px;
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      line-height: 0.92;
       font-weight: 950;
     }
 
-    .hero-copy {
-      max-width: 630px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 28px;
+    .sub {
+      max-width: 560px;
+      margin: 0 auto 30px;
       color: var(--muted);
-      font-size: clamp(1.08rem, 2vw, 1.34rem);
+      font-size: clamp(1.06rem, 1.8vw, 1.26rem);
       font-weight: 650;
     }
 
-    .hero-copy strong {
-      color: var(--ink);
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      margin-bottom: 22px;
-    }
-
-    .price-note {
+    .note {
+      margin-top: 14px;
       color: var(--muted);
+      font-size: 0.94rem;
       font-weight: 750;
     }
 
-    .hero-visual {
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      padding: 18px;
+    /* results */
+    .results {
+      padding: 8px 0 72px;
+    }
+
+    .board {
+      padding: 34px 28px 28px;
       border-radius: 36px;
       background: var(--ink);
       box-shadow: var(--shadow);
+      color: var(--paper);
+      text-align: center;
     }
 
-    .hero-visual::before {
-      content: "Viral Niche";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      z-index: 2;
-      transform: translate(-50%, -50%) rotate(-4deg);
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: var(--green);
-      color: var(--deep);
-      font-size: 0.92rem;
+    .stat {
+      font-size: clamp(3.2rem, 8vw, 6rem);
+      line-height: 0.9;
       font-weight: 950;
-      white-space: nowrap;
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.24);
+      color: var(--green);
     }
 
-    .hero-card {
+    .stat-label {
+      margin: 10px 0 28px;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 1.1rem;
+      font-weight: 750;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .tile {
+      position: relative;
       overflow: hidden;
-      border-radius: 24px;
+      border-radius: 22px;
+      aspect-ratio: 4 / 5;
       background: #20251f;
-      aspect-ratio: 1.58 / 1;
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
     }
 
-    .hero-card img {
+    .tile img {
       height: 100%;
       object-fit: cover;
     }
 
-    section {
-      padding: 70px 0;
+    .tile::after {
+      content: "";
+      position: absolute;
+      inset: 55% 0 0 0;
+      background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.62));
+    }
+
+    .views {
+      position: absolute;
+      left: 14px;
+      bottom: 12px;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #fff;
+      font-size: 1.28rem;
+      font-weight: 900;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+    }
+
+    .views svg {
+      width: 15px;
+      height: 15px;
+      fill: #fff;
+    }
+
+    /* what you get */
+    .get {
+      padding: 64px 0;
       border-top: 1px solid var(--line);
     }
 
-    .section-head {
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(260px, 0.55fr);
-      gap: 28px;
-      align-items: end;
-      margin-bottom: 30px;
-    }
-
-    h2 {
-      margin-bottom: 0;
-      font-size: clamp(2.25rem, 5vw, 4.2rem);
+    .get h2,
+    .final h2 {
+      text-align: center;
+      font-size: clamp(2.2rem, 4.6vw, 3.6rem);
       line-height: 0.96;
-      letter-spacing: 0;
       font-weight: 950;
     }
 
-    .lead {
-      margin-bottom: 0;
-      color: var(--muted);
-      font-size: 1.05rem;
-      font-weight: 650;
+    .get h2 {
+      margin-bottom: 30px;
     }
 
-    .cards {
+    .items {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
     }
 
-    .card {
-      padding: 22px;
+    .item {
+      padding: 24px;
       border: 1px solid var(--line);
-      border-radius: var(--radius);
+      border-radius: 26px;
       background: var(--paper);
-      box-shadow: 0 1px 0 rgba(16, 20, 15, 0.04);
     }
 
-    .card h3 {
-      margin-bottom: 8px;
-      font-size: 1.2rem;
-    }
-
-    .card p {
-      margin-bottom: 0;
-      color: var(--muted);
-      font-weight: 620;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 12px;
-      counter-reset: step;
-    }
-
-    .step {
-      min-height: 126px;
-      padding: 14px;
-      border: 2px solid rgba(22, 51, 0, 0.18);
-      border-radius: 18px;
-      background: rgba(231, 248, 216, 0.72);
-      counter-increment: step;
-    }
-
-    .step::before {
-      content: counter(step);
+    .item b {
       display: grid;
       place-items: center;
-      width: 34px;
-      height: 34px;
-      margin-bottom: 12px;
+      width: 40px;
+      height: 40px;
+      margin-bottom: 14px;
       border-radius: 50%;
       background: var(--deep);
       color: var(--green);
       font-weight: 900;
     }
 
-    .step strong {
-      display: block;
-      font-size: 0.94rem;
-      line-height: 1.18;
+    .item h3 {
+      margin-bottom: 6px;
+      font-size: 1.2rem;
     }
 
-    .split {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.7fr);
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .checklist {
-      display: grid;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .checklist li {
-      padding: 15px 16px;
-      border-radius: 18px;
-      background: var(--paper);
-      color: var(--ink);
-      font-weight: 760;
-    }
-
-    .offer {
-      padding: 26px;
-      border-radius: var(--radius);
-      background: var(--ink);
-      color: var(--paper);
-    }
-
-    .offer h3 {
-      margin-bottom: 10px;
-      font-size: 2rem;
-      line-height: 1;
-    }
-
-    .offer p {
-      color: rgba(255, 255, 255, 0.72);
-      font-weight: 650;
-    }
-
-    .offer .button {
-      width: 100%;
-      margin-top: 6px;
-    }
-
-    .faq-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .faq {
-      padding: 22px;
-      border-radius: 22px;
-      background: var(--paper);
-      border: 1px solid var(--line);
-    }
-
-    .faq h3 {
-      margin-bottom: 7px;
-      font-size: 1.06rem;
-    }
-
-    .faq p {
-      margin-bottom: 0;
+    .item p {
       color: var(--muted);
       font-weight: 620;
     }
 
-    .final-cta {
-      padding: 74px 0;
+    /* final */
+    .final {
+      padding: 72px 0;
       background: var(--green);
       color: var(--deep);
       text-align: center;
     }
 
-    .final-cta h2 {
-      max-width: 760px;
-      margin: 0 auto 18px;
+    .final h2 {
+      margin-bottom: 26px;
     }
 
-    .final-cta p {
-      margin-bottom: 26px;
-      font-size: 1.12rem;
-      font-weight: 750;
+    .final .note {
+      color: var(--deep);
+      opacity: 0.8;
     }
 
     footer {
-      padding: 26px 0;
+      padding: 24px 0;
       background: var(--ink);
-      color: rgba(255, 255, 255, 0.72);
-      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
     }
 
-    @media (max-width: 900px) {
-      .hero-grid,
-      .section-head,
-      .split {
-        grid-template-columns: 1fr;
-      }
-
+    @media (max-width: 760px) {
       .hero {
-        padding-top: 48px;
+        padding: 44px 0 28px;
       }
 
-      .cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .steps {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .wrap {
-        width: min(100% - 24px, 1120px);
-      }
-
-      .nav-inner {
-        min-height: 62px;
-      }
-
-      .brand {
-        font-size: 0.88rem;
-      }
-
-      .hero {
-        padding: 40px 0 46px;
-      }
-
-      h1 {
-        font-size: clamp(3.15rem, 18vw, 4.8rem);
-      }
-
-      .hero-copy {
-        font-size: 1.06rem;
-      }
-
-      .cta-row .button {
+      .hero .button {
         width: 100%;
       }
 
-      .hero-visual {
-        gap: 8px;
-        padding: 10px;
-        border-radius: 24px;
+      .board {
+        padding: 26px 12px 12px;
+        border-radius: 26px;
       }
 
-      .hero-card {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .tile {
         border-radius: 16px;
       }
 
-      section {
-        padding: 48px 0;
+      .views {
+        left: 10px;
+        bottom: 9px;
+        font-size: 1.06rem;
       }
 
-      .cards,
-      .steps,
-      .faq-grid {
+      .items {
         grid-template-columns: 1fr;
+      }
+
+      .get,
+      .final {
+        padding: 48px 0;
       }
     }
   </style>
@@ -566,170 +362,74 @@
 <body>
   <nav class="nav">
     <div class="wrap nav-inner">
-      <a class="brand" href="index.html">
+      <a class="brand" href="./">
         <span class="brand-mark" aria-hidden="true"></span>
         viralclipmethod.org
       </a>
-      <details class="menu" id="site-menu">
-        <summary aria-label="Open navigation menu"><span class="menu-lines"></span></summary>
-        <div class="menu-panel">
-          <a href="#buy">Buy</a>
-          <a href="#faq">FAQ</a>
-        </div>
-      </details>
+      <a class="button small" href="https://buy.stripe.com/8x26oHgsA4ey8f41mz6wE01">Get access</a>
     </div>
   </nav>
 
   <main>
     <header class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <div class="eyebrow">AI step-by-step guide</div>
-          <h1>Monetize Viral AI Cartoon Videos</h1>
-          <p class="hero-copy">Learn my EXACT faceless workflow for creating Viral Cartoon videos that turn views into Money on TikTok.</p>
-          <div class="cta-row">
-            <a class="button" href="https://buy.stripe.com/3cI5kDeksdP89j85CP6wE00">Get Instant Access - $9.99</a>
-            <span class="price-note">One-time payment. Instant digital access.</span>
-          </div>
-        </div>
-
-        <div class="hero-visual" aria-label="Cartoon AI video examples">
-          <div class="hero-card"><img src="assets/crops/shrek-donkey-card.jpg" alt="AI cartoon drama thumbnail example"></div>
-          <div class="hero-card"><img src="assets/crops/regular-show-card.jpg" alt="AI cartoon drama thumbnail example"></div>
-          <div class="hero-card"><img src="assets/crops/peppa-card.jpg" alt="AI cartoon drama thumbnail example"></div>
-          <div class="hero-card"><img src="assets/crops/scooby-card.jpg" alt="AI cartoon drama thumbnail example"></div>
-        </div>
+      <div class="wrap">
+        <div class="eyebrow">3D animal evolution videos</div>
+        <h1>Make viral animal videos in 10 minutes.</h1>
+        <p class="sub">The plug-and-play kit and course behind our videos. No animation skills, no editing, no camera.</p>
+        <a class="button" href="https://buy.stripe.com/8x26oHgsA4ey8f41mz6wE01">Get Instant Access - $24.99</a>
+        <p class="note">One-time payment. Instant download.</p>
       </div>
     </header>
 
-    <section id="inside">
+    <section class="results" aria-label="Our results">
       <div class="wrap">
-        <div class="section-head">
-          <h2>Start Today.</h2>
-          <p class="lead">Faceless, NO ADDITIONAL SOFTWARE COSTS, easy plug-and-play workflow.</p>
-        </div>
-        <div class="cards">
-          <article class="card">
-            <h3>Remix proven viral videos</h3>
-            <p>We remix pre-existing viral videos into your cartoon niche to give each post the highest chance of catching momentum.</p>
-          </article>
-          <article class="card">
-            <h3>Image and Video Generation</h3>
-            <p>Generate the scenes fast with free AI tools.</p>
-          </article>
-          <article class="card">
-            <h3>Edit in CapCut</h3>
-            <p>Use my template, move fast, and post today.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="method">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>The 5-step method.</h2>
-          <p class="lead">Simple enough to follow the same day, structured enough to repeat every week.</p>
-        </div>
-        <div class="steps">
-          <div class="step"><strong>Tailor your FYP on TikTok to output viral videos in your niche.</strong></div>
-          <div class="step"><strong>Remix a pre-existing viral video into your specific cartoon style.</strong></div>
-          <div class="step"><strong>Generate AI images and videos using FREE tools.</strong></div>
-          <div class="step"><strong>Edit quickly in CapCut with MY personal template.</strong></div>
-          <div class="step"><strong>Post your first video TODAY!</strong></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="offer">
-      <div class="wrap split">
-        <div>
-          <div class="section-head" style="display:block;margin-bottom:22px">
-            <h2>What you get inside.</h2>
-          </div>
-          <ul class="checklist">
-            <li>Exact Cartoon Drama workflow</li>
-            <li>Prompt templates for AI images and video</li>
-            <li>Free UNLIMITED AI image and video generation</li>
-            <li>CapCut editing process</li>
-          </ul>
-        </div>
-        <aside class="offer">
-          <h3>Start today for $9.99.</h3>
-          <p>Instant digital access to the guide. Built for beginners who want a clear path instead of guessing.</p>
-          <a class="button" href="https://buy.stripe.com/3cI5kDeksdP89j85CP6wE00">Get Access</a>
-        </aside>
-      </div>
-    </section>
-
-    <section id="faq">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Questions, answered.</h2>
-          <p class="lead">Keep it simple. Start with the workflow, then improve with each post.</p>
-        </div>
-        <div class="faq-grid">
-          <div class="faq">
-            <h3>Do I need experience?</h3>
-            <p>No. The guide is beginner friendly.</p>
-          </div>
-          <div class="faq">
-            <h3>Do I need to show my face?</h3>
-            <p>No. This is a fully faceless content system.</p>
-          </div>
-          <div class="faq">
-            <h3>Are there any additional costs?</h3>
-            <p>No additional software costs are required to start the workflow.</p>
-          </div>
-          <div class="faq">
-            <h3>When should I start?</h3>
-            <p>Post your first video today, don't fall behind.</p>
+        <div class="board">
+          <div class="stat">1.5M+ views</div>
+          <p class="stat-label">in our first week of posting</p>
+          <div class="grid">
+            <div class="tile"><img src="assets/animals/elephant.jpg" alt="Elephant video"><span class="views"><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0L10 6L0 12z"/></svg>659.9K</span></div>
+            <div class="tile"><img src="assets/animals/guinea-pig.jpg" alt="Guinea pig video"><span class="views"><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0L10 6L0 12z"/></svg>486.1K</span></div>
+            <div class="tile"><img src="assets/animals/cheetah.jpg" alt="Cheetah video"><span class="views"><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0L10 6L0 12z"/></svg>176.4K</span></div>
+            <div class="tile"><img src="assets/animals/polar-bear.jpg" alt="Polar bear video"><span class="views"><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0L10 6L0 12z"/></svg>140.1K</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="final-cta" id="buy">
+    <section class="get">
       <div class="wrap">
-        <h2>Start building monetizable AI videos today.</h2>
-        <p>This is a trend-based system. The creators who move fastest give themselves the best shot at turning attention into income.</p>
-        <a class="button dark" href="https://buy.stripe.com/3cI5kDeksdP89j85CP6wE00">Get Instant Access - $9.99</a>
+        <h2>What you get.</h2>
+        <div class="items">
+          <div class="item">
+            <b>1</b>
+            <h3>The video kit</h3>
+            <p>Everything to make the videos: 3D animals, habitats, captions and sound effects.</p>
+          </div>
+          <div class="item">
+            <b>2</b>
+            <h3>The course</h3>
+            <p>Our exact workflow, step by step, from first idea to a finished 60-second video.</p>
+          </div>
+          <div class="item">
+            <b>3</b>
+            <h3>Your first video in 10 minutes</h3>
+            <p>Pick an animal and get a ready-to-post video. No skills needed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final" id="buy">
+      <div class="wrap">
+        <h2>Your first viral video is 10 minutes away.</h2>
+        <a class="button dark" href="https://buy.stripe.com/8x26oHgsA4ey8f41mz6wE01">Get Instant Access - $24.99</a>
+        <p class="note">One-time payment. Instant download.</p>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">viralclipmethod.org - Digital guide for educational purposes.</div>
+    <div class="wrap">viralclipmethod.org - Digital course and video kit for educational purposes.</div>
   </footer>
-  <script>
-    const navigationEntry = performance.getEntriesByType("navigation")[0];
-
-    if (navigationEntry && navigationEntry.type === "reload") {
-      if (window.location.hash) {
-        history.replaceState(null, "", window.location.pathname + window.location.search);
-      }
-      window.scrollTo(0, 0);
-    }
-
-    const menu = document.getElementById("site-menu");
-
-    document.addEventListener("click", (event) => {
-      if (menu.open && !menu.contains(event.target)) {
-        menu.open = false;
-      }
-    });
-
-    menu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        menu.open = false;
-      });
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        menu.open = false;
-      }
-    });
-  </script>
 </body>
 </html>
